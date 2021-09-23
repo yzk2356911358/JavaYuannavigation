@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Title</title>
+    <meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css"href="css/index.css" />
+	<style>
+	
+	</style>
+	</head>
+	<body id="body">
+	<div id="head">
+		<ul
+		<li  id="head-li">
+			<a href="index.html" id="dhherf">
+			<span id="head-span">Java猿导航</span>
+			</a>
+			</li>
+		<li  id="head-li">
+			<a href="index.html" id="dhherf">
+			<span id="head-span">首页</span>
+			</a>
+			</li>
+		<li  id="head-li">
+			<a href="index.html" id="dhherf">
+			<span id="head-span">手册</span>
+			</a>
+			</li>
+			<li  id="head-li">
+				<a href="index.html" id="dhherf">
+				<span id="head-span">书籍</span>
+				</a>
+				</li>
+			<li  id="head-li">
+				<a href="index.html" id="dhherf">
+				<span id="head-span">书籍</span>
+				</a>
+				</li>
+			<li  id="head-li">
+				<a href="index.html" id="dhherf">
+				<span id="head-span">公号</span>
+				</a>
+				</li>		
+		</ul>
+	</div>
+	<div id="menuleft">
+		<img id="logo" src="img/logo.gif" />
+		<dl id="dhdl" >
+		<dd th:each="temp: ${typelist}">
+		<a  th:href="'#'+@{${temp.type}}" id="daohanghref" th:text="${temp.type}"></a></dd>
+		</dl>
+	</div>
+	<div id="cygj" th:each="type: ${typelist}">
+		<br />
+		<strong th:id="${type.type}" style="position: relative;top: 3%;left: 4%;">[(${type.type})]</strong>
+		<br />
+		<hr style="border: 1px solid #E9ECEF"/>
+		<ul>
+		<li id="cygjli" th:each="temp: ${projectlist}" th:if="${temp.type==type.type}">
+			<img th:src="@{${temp.img}}" style="width: 20px;height: 20px;">
+			<a th:href="@{${temp.href}}"  style="color:#444 !important" id="dhherf" th:text="${temp.name}" target="_blank"></a>
+		</li>
+		</ul>
+	</div>
+	
+	</body>
+</html>
